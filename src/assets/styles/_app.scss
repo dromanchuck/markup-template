@@ -1,0 +1,22 @@
+@import "normalize.css";
+@import "bootstrap/dist/css/bootstrap-grid.css";
+@import "slick-carousel/slick/slick.css";
+
+/*
+  Base
+*/
+@import "./base/fonts";
+
+/*
+  Utils
+*/
+@import "./utils/variables";
+@import "./utils/dimensions";
+@import "./utils/mixins";
+@import "./utils/keyframes";
+
+/*
+  Pages
+*/
+
+@import "./pages/main.scss";

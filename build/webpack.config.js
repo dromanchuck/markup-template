@@ -1,3 +1,4 @@
+// Libraries
 const path = require("path");
 const webpack = require("webpack");
 
@@ -6,16 +7,24 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const fs = require("fs");
+
+// Files
+// pug utils
 const utils = require("./utils");
+
+// html templates
 
 const htmlGlob = require("./htmlGlob");
 
+//const plugins = require('../postcss.config');
+
+// Configuration
 module.exports = env => {
   console.log(process);
   return {
     context: path.resolve(__dirname, "../src"),
     entry: {
-      app: "./js/common.js"
+      app: "./app.js"
     },
     output: {
       path: path.resolve(__dirname, "../dist"),
@@ -46,6 +55,7 @@ module.exports = env => {
           use: [
             {
               loader: "babel-loader"
+              // options: { presets: ['es2015'] }
             }
           ]
         },
@@ -147,6 +157,10 @@ module.exports = env => {
     },
 
     plugins: [
+      new CopyWebpackPlugin([
+        { from: "../manifest.json", to: "manifest.json" },
+        { from: "../browserconfig.xml", to: "browserconfig.xml" }
+      ]),
       new MiniCssExtractPlugin({
         filename: "assets/css/[name].[hash:7].bundle.css",
         chunkFilename: "[id].css"
@@ -158,9 +172,6 @@ module.exports = env => {
         jQuery: "jquery",
         "window.$": "jquery",
         "window.jQuery": "jquery"
-      }),
-      new WebpackNotifierPlugin({
-        title: "Arateg project"
       })
     ]
   };
