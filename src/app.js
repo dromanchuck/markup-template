@@ -5,9 +5,11 @@ import "./assets/styles/_app.scss";
 
 // Slider
 import "slick-carousel";
+import "mmenu-js";
+import "hamburgers";
 
 $(document).ready(() => {
-  console.log("Ready!");
-
   require("./assets/scripts/main");
+  require("./assets/scripts/menu");
+  require("./assets/scripts/parallax");
 });
