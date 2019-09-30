@@ -3,10 +3,12 @@
 // Styles
 import "./assets/styles/_app.scss";
 
-// Slider
-import "slick-carousel";
+//Menu
 import "mmenu-js";
 import "hamburgers";
+import "jquery";
+import "jquery.stellar/jquery.stellar";
+import "scrollax";
 
 $(document).ready(() => {
   require("./assets/scripts/main");
